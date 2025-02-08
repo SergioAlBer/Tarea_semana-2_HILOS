@@ -2,34 +2,34 @@
 #include <thread>  // Necesario para std::thread
 #include <chrono>  // Necesario para std::chrono
 
-// Función para imprimir "Hola" infinitamente
+// FunciÃ³n para imprimir "Hola" infinitamente
 void saludar_hola() {
     while (true) {
         std::cout << "Hola" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Pausa para ver mejor la intercalación
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  
     }
 }
 
-// Función para imprimir "Adiós" infinitamente
+// FunciÃ³n para imprimir "AdiÃ³s" infinitamente
 void saludar_adios() {
     while (true) {
-        std::cout << "Adiós" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Pausa para ver mejor la intercalación
+        std::cout << "AdiÃ³s" << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  
     }
 }
 
 int main() {
-    // Creamos los hilos para "Hola" y "Adiós"
+    // Creamos los hilos para "Hola" y "AdiÃ³s"
     std::thread hilo_hola(saludar_hola);
     std::thread hilo_adios(saludar_adios);
 
-    // El hilo principal imprimirá "Saludo infinito" de manera continua
+    // El hilo principal imprimirÃ¡ "Saludo infinito" de manera continua
     while (true) {
         std::cout << "Saludo infinito" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Pausa para ver mejor la intercalación
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // Pausa 
     }
 
-    // Join de los hilos (en este caso, nunca se ejecutará debido al while infinito en main)
+    // Join de los hilos 
     hilo_hola.join();
     hilo_adios.join();
 
